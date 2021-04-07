@@ -1,0 +1,79 @@
+body {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: rgba(1, 29, 255, 0.5);
+    background-size: 200% 200%;
+    animation: movement 30s ease infinite alternate-reverse;
+}
+main {
+    margin: 0; padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section {
+    width: 40rem;
+    height: 40rem;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(1rem);
+    border-radius: 2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 22px 0 rgba(31,38,135,.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section h2 {
+    margin: 0;
+    padding-top: 1rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+section ul {
+    margin: 0;
+    padding: .2em;
+    list-style-type: none;
+    flex-grow: 2;
+    width: 35em;
+    height: 20em;
+    overflow: auto;
+}
+section ul > li {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+}
+section form {
+    margin: 0 0 1rem 0; padding: 0;
+    height: 2rem;
+    display: flex;
+}
+section form input {
+    margin: 0; padding: 0 1rem;
+    border: none;
+    height: 1.5em;
+    font-size: 1.75em;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    opacity: 80%;
+    outline: none;
+}
+section form > button {
+    background: rgba(36, 0, 255, 0.5);
+    border: 1px solid white;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    padding: 0 .6rem 0 .4rem;
+    margin-left: .2rem;
+    outline: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    height: 1.5em;
+}
