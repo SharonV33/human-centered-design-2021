@@ -1,3 +1,13 @@
+/*emotion colors*/
+:root {
+    --happy: rgba(251, 215, 49, 0.55);
+    --sad: rgba(100, 149, 237, 0.55);
+    --angry: rgba(255, 69, 0, 0.55);
+    --fear: rgba(148, 0, 211, 0.55);
+    --envy: rgba(127, 255, 0, 0.55);
+    --love: rgba(255, 105, 180, 0.55);
+}
+
 body {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -53,8 +63,8 @@ section ul > li {
     padding: 1rem;
     margin: 1em 0;
     font-size: 1.25rem;
-    background-color: white;
-    border-color: white;
+    background-color: var(--happy);
+    border-color: var(--happy);
     border-radius: 2rem;
     width: 80%;
     display:inline-block;
