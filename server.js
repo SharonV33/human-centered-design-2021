@@ -6,7 +6,7 @@ const app = express()
 const http = require('http').createServer(app)
 const path = require('path')
 const io = require('socket.io')(http)
-const port = process.env.PORT || 4242
+const port = process.env.PORT || 8000
 
 app.use(express.static(path.resolve('public')))
 
