@@ -1,13 +1,24 @@
 /*emotion colors*/
 :root {
-    --default: rgba(20, 0, 45, 0.55);
-    --neutral: rgba(20, 0, 45, 0.55);
-    --happy: rgba(251, 215, 49, 0.55);
-    --sad: rgba(100, 149, 237, 0.55);
-    --angry: rgba(255, 69, 0, 0.55);
-    --fearful: rgba(148, 0, 211, 0.55);
-    --disgusted: rgba(127, 255, 0, 0.55);
-    --surprised: rgba(255, 107, 19, 0.55);
+    --defaultcolor: rgba(0, 0, 0, 0.55);
+    --neutralcolor: rgba(0, 0, 0, 0.55);
+    --happycolor: rgba(255, 207, 0, 0.55);
+    --sadcolor: rgba(119, 153, 219, 0.55);
+    --angrycolor: rgba(255, 0, 0, 0.55);
+    --fearfulcolor: rgba(180, 0, 255, 0.55);
+    --disgustedcolor: rgba(126, 144, 82, 0.55);
+    --surprisedcolor: rgba(255, 153, 93, 0.55);
+
+    --defaultfont: 'Karma';
+    --neutralfont: 'Karma';
+    --surprisedfont: 'Alegreya Sans SC';
+    --disgustedfont: 'Chalkduster';
+    --angryfont: 'impact', bold;
+    --happyfont: 'Brush Script MT';
+    --fearfulfont: 'Creepster', cursive;
+    --sadfont: 'Astloch', cursive;
+
+
 }
 
 body {
@@ -62,12 +73,14 @@ section ul {
 }
 
 section ul > li {
-    --background: var(--happy);
+    --background: var(--defaultcolor);
+    --font: var(--defaultfont);
     padding: 1rem;
     margin: 1em 0;
     font-size: 1.25rem;
     background-color: var(--background);
     border-color: var(--background);
+    font-family: var(--font);
     border-radius: 2rem;
     width: 80%;
     display:inline-block;

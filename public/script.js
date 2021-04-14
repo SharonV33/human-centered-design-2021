@@ -20,7 +20,8 @@ document.querySelector('form').addEventListener('submit', (event) => {
 socket.on('message', function(message) {
     const element = document.createElement('li')
     element.textContent = message.value
-    element.style.setProperty('--background', `var(--${message.emotion})`)
+    element.style.setProperty('--background', `var(--${message.emotion}color)`)
+    element.style.setProperty('--font', `var(--${message.emotion}font)`)
     messages.appendChild(element)
     messages.scrollTop = messages.scrollHeight
 })
@@ -78,6 +79,7 @@ function detectEmotion() {
         } else {
             emotion = 'neutral'
         }
-        input.style.setProperty('--border', `var(--${emotion})`)
+        input.style.setProperty('--border', `var(--${emotion}color)`)
+        // input.style.setProperty('--border', `var(--${emotion}font)`)
     }, 1000)
 }
