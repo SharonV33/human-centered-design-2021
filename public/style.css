@@ -17,8 +17,6 @@
     --happyfont: 'Brush Script MT';
     --fearfulfont: 'Creepster', cursive;
     --sadfont: 'Astloch', cursive;
-
-
 }
 
 body {
@@ -96,6 +94,11 @@ section ul > li:after {
     border-top-color: inherit;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
+}
+
+section ul .ownMessage:after {
+    left: 80%;
+
 }
 
 section form {

@@ -6,25 +6,46 @@ const canvas = document.querySelector('canvas')
 let emotion = 'neutral'
 
 window.addEventListener('load', () => {
-    loadFacialRecognition()
+    // loadFacialRecognition()
+    storeUsername()
 })
 
 document.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault()
+    const user = localStorage.getItem('currentUser')
     if (input.value) {
-        socket.emit('message', { value: input.value, emotion,  })
+        socket.emit('message', { user: user, content : input.value, emotion,  })
         input.value = ''
     }
 })
 
 socket.on('message', function(message) {
     const element = document.createElement('li')
-    element.textContent = message.value
-    element.style.setProperty('--background', `var(--${message.emotion}color)`)
-    element.style.setProperty('--font', `var(--${message.emotion}font)`)
+    const user = localStorage.getItem('currentUser')
+    element.textContent = `${message.user}: ${message.content}`
+    // element.style.setProperty('--background', `var(--${message.emotion}color)`)
+    // element.style.setProperty('--font', `var(--${message.emotion}font)`)
+    if (message.user === user) {
+        element.classList.add('ownMessage')
+    }
     messages.appendChild(element)
     messages.scrollTop = messages.scrollHeight
 })
+
+function storeUsername () {
+    //check if username is stored in the browsers localstorage
+    if (!localStorage.getItem('currentUser')) {
+        //give the user a prompt to enter it and store it into locatsorage
+        let txt
+        let username = prompt("Voer uw naam in:", "");
+        if (username == null || username == "") {
+            //    show error, must enter username
+        } else {
+            localStorage.setItem('currentUser', username)
+        }
+    }
+        console.log('current user', localStorage.getItem('currentUser'))
+}
 
 async function loadFacialRecognition() {
     await Promise.all([faceapi.nets.tinyFaceDetector.loadFromUri('./models'), faceapi.nets.faceLandmark68Net.loadFromUri('./models'), faceapi.nets.faceRecognitionNet.loadFromUri('./models'), faceapi.nets.faceExpressionNet.loadFromUri('./models')])
@@ -80,6 +101,5 @@ function detectEmotion() {
             emotion = 'neutral'
         }
         input.style.setProperty('--border', `var(--${emotion}color)`)
-        // input.style.setProperty('--border', `var(--${emotion}font)`)
     }, 1000)
 }
