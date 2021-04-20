@@ -15,20 +15,34 @@
 <body>
 
 <main>
-    <p id="demo"></p>
-    <section>
-        <h2>Kerkers en draken</h2>
-        <ul></ul>
-        <form>
-            <input type="text" autocomplete="off">
-            <button>Toon je emotie en verstuur</button>
-        </form>
+    <section id="chat">
+        <section>
+            <h2>Kerkers en draken</h2>
+            <ul><!--messages are appended here--></ul>
+            <form>
+                <input type="text" autocomplete="off">
+                <button>Toon je emotie en verstuur</button>
+            </form>
+        </section>
+        <div>
+            <video width='256' height='144'></video>
+            <canvas></canvas>
+        </div>
     </section>
-    <div>
-        <video width='256' height='144'></video>
-        <canvas></canvas>
-    </div>
+    <section id="learning">
+        <button class="collapse">Ontdekkings modus</button>
+        <ul class="learningMessages" style="display: none">
+            <li id="happy">Een blij bericht</li>
+            <li id="sad">Een verdrietig bericht</li>
+            <li id="angry">Een boos bericht</li>
+            <li id="surprised">Een verbaads bericht</li>
+            <li id="disgusted">Een walgend bericht</li>
+            <li id="fearful">Een bang bericht</li>
+            <li>Een neutraal bericht</li>
+        </ul>
+    </section>
 </main>
+
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="./script.js"></script>

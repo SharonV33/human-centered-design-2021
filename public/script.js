@@ -19,6 +19,17 @@ document.querySelector('form').addEventListener('submit', (event) => {
     }
 })
 
+document.querySelector(".collapse").addEventListener("click", function () {
+        this.classList.toggle("active")
+        const content = document
+            .querySelector('.learningMessages')
+        if (content.style.display === "flex") {
+            content.style.display = "none"
+        } else {
+            content.style.display = "flex"
+        }
+    })
+
 socket.on('message', function(message) {
     const element = document.createElement('li')
     const user = localStorage.getItem('currentUser')
@@ -37,9 +48,9 @@ function storeUsername () {
     if (!localStorage.getItem('currentUser')) {
         //give the user a prompt to enter it and store it into locatsorage
         let txt
-        let username = prompt("Voer uw naam in:", "");
+        const username = prompt("Voer uw naam in:", "")
         if (username == null || username == "") {
-            //    show error, must enter username
+
         } else {
             localStorage.setItem('currentUser', username)
         }
