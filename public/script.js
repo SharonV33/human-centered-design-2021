@@ -6,7 +6,7 @@ const canvas = document.querySelector('canvas')
 let emotion = 'neutral'
 
 window.addEventListener('load', () => {
-    // loadFacialRecognition()
+    loadFacialRecognition()
     storeUsername()
 })
 
@@ -34,8 +34,8 @@ socket.on('message', function(message) {
     const element = document.createElement('li')
     const user = localStorage.getItem('currentUser')
     element.textContent = `${message.user}: ${message.content}`
-    // element.style.setProperty('--background', `var(--${message.emotion}color)`)
-    // element.style.setProperty('--font', `var(--${message.emotion}font)`)
+    element.style.setProperty('--background', `var(--${message.emotion}color)`)
+    element.style.setProperty('--font', `var(--${message.emotion}font)`)
     if (message.user === user) {
         element.classList.add('ownMessage')
     }

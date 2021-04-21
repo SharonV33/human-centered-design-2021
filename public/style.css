@@ -40,7 +40,7 @@ main {
 }
 
 section {
-    width: 40rem;
+    width: 52rem;
     height: 40rem;
     background: rgba(255,255,255,0.4);
     backdrop-filter: blur(0.5rem);
