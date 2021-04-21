@@ -6,16 +6,19 @@ const canvas = document.querySelector('canvas')
 let emotion = 'neutral'
 
 window.addEventListener('load', () => {
-    loadFacialRecognition()
+    // loadFacialRecognition()
     storeUsername()
 })
 
 document.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault()
-    const user = localStorage.getItem('currentUser')
-    if (input.value) {
-        socket.emit('message', { user: user, content : input.value, emotion,  })
+    let user = localStorage.getItem('currentUser')
+    if (input.value && user) {
+        socket.emit('message', { user: user , content : input.value, emotion,  })
         input.value = ''
+    }
+    else if (input.value && !user) {
+        storeUsername()
     }
 })
 
@@ -47,7 +50,6 @@ function storeUsername () {
     //check if username is stored in the browsers localstorage
     if (!localStorage.getItem('currentUser')) {
         //give the user a prompt to enter it and store it into locatsorage
-        let txt
         const username = prompt("Voer uw naam in:", "")
         if (username == null || username == "") {
 
