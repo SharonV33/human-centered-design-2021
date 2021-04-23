@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,14 +31,65 @@
     </section>
     <section id="learning">
         <button class="collapse">Ontdek de emoties</button>
-        <ul class="learningMessages" style="display: none">
-            <li id="happy">Een blij bericht</li>
-            <li id="sad">Een verdrietig bericht</li>
-            <li id="angry">Een boos bericht</li>
-            <li id="surprised">Een verbaads bericht</li>
-            <li id="disgusted">Een walgend bericht</li>
-            <li id="fearful">Een bang bericht</li>
-            <li>Een neutraal bericht</li>
+        <ul class="settings">
+            <label for="useCamera">
+                <li>
+                    Gebruik de camera
+                    <input type="checkbox" id="useCamera">
+                </li>
+
+            </label>
+            <label for="useButtons">
+                <li>
+                    Gebruik de knoppen
+                    <input type="checkbox" id="useButtons">
+                </li>
+            </label>
+        </ul>
+        <ul class="learningMessages" style="display: flex">
+            <label for="happyMessage">
+                <li id="happy">
+                    Een blij bericht
+                    <input type="checkbox" id="happyMessage">
+                </li>
+            </label>
+            <label for="sadMessage">
+                <li id="sad">
+                    Een verdrietig bericht
+                    <input type="checkbox" id="sadMessage">
+                </li>
+            </label>
+            <label for="angryMessage">
+                <li id="angry">
+                    Een boos bericht
+                    <input type="checkbox" id="angryMessage">
+                </li>
+            </label>
+            <label for="surprisedMessage">
+                <li id="surprised">
+                    Een verbaads bericht
+                    <input type="checkbox" id="surprisedMessage">
+                </li>
+            </label>
+            <label for="disgustedMessage">
+                <li id="disgusted">
+                    Een walgend bericht
+                    <input type="checkbox" id="disgustedMessage">
+                </li>
+            </label>
+            <label for="fearfulMessage">
+                <li id="fearful">
+                    Een bang bericht
+                    <input type="checkbox" id="fearfulMessage">
+                </li>
+
+            </label>
+            <label for="neutralMessage">
+                <li>
+                    Een neutraal bericht
+                    <input type="checkbox" id="neutralMessage">
+                </li>
+            </label>
         </ul>
     </section>
 </main>
