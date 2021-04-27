@@ -19,6 +19,7 @@ window.addEventListener('load', () => {
     useButtons.addEventListener('change', function() {
         if (this.checked) {
             buttonEmotions()
+            stopFacialRecognition()
         }
     })
 })
@@ -56,12 +57,20 @@ socket.on('message', function(message) {
     //declared in custom properties in CSS
     const element = document.createElement('li')
     const user = localStorage.getItem('currentUser')
+
+    message.content = message.content.replace('dragons', 'dragons🐉')
+    message.content = message.content.replace('Dragons', 'Dragons🐉')
+    message.content = message.content.replace('dungeons', 'dungeons🏰')
+    message.content = message.content.replace('Dungeons', 'Dungeons🏰')
+
     element.textContent = `${message.user}: ${message.content}`
     element.style.setProperty('--background', `var(--${message.emotion}color)`)
     element.style.setProperty('--font', `var(--${message.emotion}font)`)
+
     if (message.user === user) {
         element.classList.add('ownMessage')
     }
+
     messages.appendChild(element)
     messages.scrollTop = messages.scrollHeight
 })
@@ -126,8 +135,35 @@ function buttonEmotions () {
     })
 }
 
+async function stopFacialRecognition() {
+    let stream
+    try {
+        stream = await navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: {
+                width: {min: 1024, ideal: 1280, max: 1920},
+                height: {min: 576, ideal: 1280, max: 1920},
+                facingMode: 'user',
+            },
+        })
+    } catch (err) {
+        console.error(err)
+    }
+
+    video.srcObject = stream
+    video.onloadedmetadata = function(e) {
+        video.stop()
+    }
+}
+
 async function loadFacialRecognition() {
-    await Promise.all([faceapi.nets.tinyFaceDetector.loadFromUri('./models'), faceapi.nets.faceLandmark68Net.loadFromUri('./models'), faceapi.nets.faceRecognitionNet.loadFromUri('./models'), faceapi.nets.faceExpressionNet.loadFromUri('./models')])
+    await Promise.all([
+        faceapi.nets.tinyFaceDetector.loadFromUri('./models'),
+        faceapi.nets.faceLandmark68Net.loadFromUri('./models'),
+        faceapi.nets.faceRecognitionNet.loadFromUri('./models'),
+        faceapi.nets.faceExpressionNet.loadFromUri('./models')
+    ])
+
     /** @type MediaStream */
     let stream
     try {
@@ -176,8 +212,9 @@ function detectEmotion() {
                 emotion = status
 
             })
-        } else {
-            emotion = 'neutral'
         }
+        // else {
+        //     emotion = 'neutral'
+        // }
     }, 1000)
 }

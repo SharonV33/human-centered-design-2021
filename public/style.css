@@ -27,6 +27,10 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     background: rgba(54, 76, 255, 0.5);
+    background-image: url("https://norerolls.files.wordpress.com/2020/09/iwd.jpg?w=1800&h=1012");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main {
