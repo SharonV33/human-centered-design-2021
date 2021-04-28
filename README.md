@@ -13,6 +13,7 @@ rijden, muziek maken en met mensen dungeons and dragons te spelen.
 
 ## Over het project
 <img src="https://i.ibb.co/pbtgjLk/Screenshot-2021-04-28-at-14-15-42.png">
+
 [livelink](https://erikchat.herokuapp.com/)
 
 Om Eric te helpen met het overbrengen van lichaamstaal tijdens het chatten heb ik een speciaal chat systeem gebouwd waar emoties in verwerkt 
